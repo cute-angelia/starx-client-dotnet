@@ -1,5 +1,11 @@
 # Starx .Net client library
 
+
+fork update:
+
+增加 `kcp` 协议支持
+
+
 ## Usage
 
 ```
