@@ -54,7 +54,7 @@ namespace StarX
 
     private string serverAddr = "42.192.128.111";
 
-    private int port = 10188;
+    private int port = 10187;
 
     public StarXClient()
     {
@@ -68,6 +68,9 @@ namespace StarX
     /// <param name="callback">socket successfully connected callback(in network thread)</param>
     public void InitKcp(string host, int port, Action callback = null)
     {
+      this.serverAddr = host;
+      this.port = port;
+
       timeoutEvent.Reset();
       eventManager = new EventManager();
       NetWorkChanged(NetWorkState.CONNECTING);
