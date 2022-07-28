@@ -52,6 +52,27 @@ client.Init("127.0.0.1", 3250, () =>
     		client.Notify("chat.ChatHandler.UserIsInputing", Encoding.UTF8.GetBytes("someone is inputing"));
   	});
 });
+
+
+
+// 发送登陆协议
+// 请求gate服务器，LoginHandler.Login服务
+var b = pb.Login_Request.CreateBuilder();
+b.SetUid(123);
+client.Request("Manager.Login", b.Build().ToByteArray(), (resp) =>
+    {
+      Debug.Log("gate.LoginHandler.Login response (uid = 123) : " + Encoding.UTF8.GetString(resp));
+    });
+
+
+
+// 解析协议
+var data = pb.CreateRoom_Response.ParseFrom(resp);
+Debug.Log("CreateRoom  response: " + data);
+Debug.Log("CreateRoom  errormsg: " + data.Error.Msg);
+Debug.Log("CreateRoom  errorcode: " + data.Error.Code);
+
+
 ```
 
 ## Reference
