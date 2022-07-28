@@ -2,13 +2,9 @@
 
 *.meta
 # Binaries for programs and plugins
-*.dll
 *.so
 *.dylib
 *.test
-*.exe
-.exe
-.exe~
 .DS_Store
 *.db
 
